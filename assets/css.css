@@ -1,0 +1,33 @@
+body {
+    background-color: #2e0027;
+}
+
+header {
+    color: grey;
+}
+
+.btn {
+    background-color: white;
+}
+
+.hide {
+    display: none;
+}
+
+
+#intro-article {
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    font-size: larger;
+    margin: 2.7% 3%;
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+
+.btn:hover{
+    background-color: #026b1e;
+    opacity: .9;
+}
+
