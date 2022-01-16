@@ -11,9 +11,11 @@ var startBtn = document.querySelector("#start")
 var questionIndex = 0
 var highScoreBox = document.querySelector("#highscore-box")
 var headPannel = document.querySelector("#head-pannel")
-var scoreName = document.querySelector('#inputName')
+var scoreName = document.querySelector("#inputName")
 var scorePoint
 var highscores
+var clearScoreBtn = document.querySelector("#clear-score")
+var scoresBox = document.querySelector("#scores-box")
 
 var questions = [
     {
@@ -139,7 +141,6 @@ function nextQ() {
     function stopTimer() {
         time.innerHTML = "TIMES UP!"
         clearInterval(interval); 
-        
     }
 
 
@@ -147,6 +148,7 @@ function nextQ() {
 
    //score form submit click 
    $("#submit").click(function (event) {
+    highScoreBox.setAttribute("class", "hide")
     generateScores()
 });
 
@@ -156,16 +158,12 @@ function generateScores() {
     highscores = JSON.parse(localStorage.getItem("scores")) || [];
 
     highscores.unshift({
-        name: scoreName.value,
-        scorePoint: scorePoint,
+        Initials: scoreName.value,
+        Score: scoreBoard,
     });
 
     localStorage.setItem("scores", JSON.stringify((highscores)))
 
-
-    for (var j = 0; j < highscores.length; j++) {
-        var highscores = JSON.parse(localStorage.getItem("scores")) || [];
-        $("#yourScores").append('<li class="list-group-item">' + "Name: " + highscores[j].name + "  Score: " + highscores[j].score + '</li>')
+    var localScores = document.createElement("div")
+    localScores.innerText = "You completed the JavaScript Jive Quiz!"
     }
-console.log(localStorage)
-}
