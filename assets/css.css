@@ -24,7 +24,13 @@ header {
     font-family: "Times New Roman", Times, serif;
 }
 
+article p {
+    font-size: larger;
+}
 
+.answer-btn:hover {
+    background-color: grey;
+}
 
 .btn:hover{
     background-color: #026b1e;
