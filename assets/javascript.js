@@ -151,7 +151,6 @@ function nextQ() {
 });
 
 
-
 //Function to populate scores
 function generateScores() {
     highscores = JSON.parse(localStorage.getItem("scores")) || [];
@@ -168,6 +167,5 @@ function generateScores() {
         var highscores = JSON.parse(localStorage.getItem("scores")) || [];
         $("#yourScores").append('<li class="list-group-item">' + "Name: " + highscores[j].name + "  Score: " + highscores[j].score + '</li>')
     }
-console.log(highscores)
 console.log(localStorage)
 }
