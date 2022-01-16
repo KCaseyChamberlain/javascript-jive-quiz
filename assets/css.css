@@ -3,7 +3,8 @@ body {
 }
 
 header {
-    color: grey;
+    color: #c2c2c2;
+    padding: 2.5%;
 }
 
 .btn {
@@ -23,19 +24,29 @@ header {
     text-align: center;
     line-height: 25px;
     font-size: larger;
-    margin: 2.7% 3%;
+    margin: 3% 5%;
     font-family: "Times New Roman", Times, serif;
 }
 
 article p {
-    font-size: larger;
-}
-
-#small-text {
-    color: grey;
     font-size: xx-large;
 }
 
+article h2 {
+    color: #d6bfc9;
+}
+
+#small-text {
+    color: #d6bfc9;
+    font-size: xx-large;
+}
+
+#input-name {
+    background-color: #330400;
+    color: white;
+    text-align: center;
+    font-size: xx-large;
+}
 
 .btn:hover{
     background-color: grey;

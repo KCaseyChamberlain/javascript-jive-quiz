@@ -1,6 +1,4 @@
-// var time = document.querySelector('#time')
-var count = 60
-var scoreBoard = 0
+// Variables
 var time = document.querySelector("#time")
 var btnBox = document.querySelector("#btn-box")
 var score = document.querySelector("#score")
@@ -8,15 +6,16 @@ var introArticle = document.querySelector("#intro-article")
 var quizQ = document.querySelector("#quiz-question")
 var quizTitle = document.querySelector("#title")
 var startBtn = document.querySelector("#start")
-var questionIndex = 0
 var highScoreBox = document.querySelector("#highscore-box")
 var headPannel = document.querySelector("#head-pannel")
-var scoreName = document.querySelector("#inputName")
+var scoreName = document.querySelector("#input-name")
 var scorePoint
 var highscores
-var clearScoreBtn = document.querySelector("#clear-score")
-var scoresBox = document.querySelector("#scores-box")
+var count = 60
+var scoreBoard = 0
+var questionIndex = 0
 
+// Quiz question; title, choice, and answer
 var questions = [
     {
         title: "Inside which HTML element do we put the JavaScript?",
@@ -40,12 +39,12 @@ var questions = [
     },
     {
         title: "What is an example of a pseudo-element?",
-        choices: ["::before", "::after", "::first-letter", "All of the above"],
+        choices: ["::be1e", "::after", "::first-letter", "All of the above"],
         answer: "All of the above"
     },
 ];
 
-// Start button to start the quiz and start the timer function
+// Start button to start the quiz, timer, and scorer
 $("#start").click(function () {
     quizTitle.setAttribute("class", "hide")
     startBtn.setAttribute("class", "hide")
@@ -71,10 +70,12 @@ function timer() {
     }, 1000);
 }
 
+// Scorer function
 function scorer() {
     score.innerHTML = scoreBoard
 }
 
+// Next question function
 function nextQ() {
     var currentQ = questions[questionIndex];
         questionIndex++
@@ -98,13 +99,14 @@ function nextQ() {
         var answer = currentQ.answer
         console.log(answer)
         console.log(selected)
-
+        // Add 15 points if answered correctly
         if (answer === selected) {
             scoreBoard = scoreBoard + 15
             $("#btn-box").empty();
             nextQ()
             score.innerHTML = scoreBoard
         }
+        // Minus 15 seconds if answered incorrectly
         else {
             $("#btn-box").empty();
             count = count - 15
