@@ -9,7 +9,11 @@ var quizQ = document.querySelector("#quiz-question")
 var quizTitle = document.querySelector("#title")
 var startBtn = document.querySelector("#start")
 var questionIndex = 0
-
+var highScoreBox = document.querySelector("#highscore-box")
+var headPannel = document.querySelector("#head-pannel")
+var scoreName = document.querySelector('#inputName')
+var scorePoint
+var highscores
 
 var questions = [
     {
@@ -44,7 +48,6 @@ var questions = [
 $("#start").click(function () {
     quizTitle.setAttribute("class", "hide")
     startBtn.setAttribute("class", "hide")
-    // score.setAttribute("class", "hide")
     console.log("click")
     timer()
     nextQ()
@@ -98,6 +101,7 @@ function nextQ() {
             stopQuiz()
         }
 
+
     $(".answer-btn").click(function () {
 
         var selected = $(this).attr("data-id")
@@ -105,7 +109,7 @@ function nextQ() {
         console.log(answer)
         console.log(selected)
 
-        if (answer === selected) {1
+        if (answer === selected) {
             scoreBoard = scoreBoard + 15
             $("#btn-box").empty();
             nextQ()
@@ -121,22 +125,49 @@ function nextQ() {
 }
 
 
-
-
     //Function that stops quiz and stores time as score
     function stopQuiz() {
         stopTimer()
         $("#btn-box").empty();
-        btnBox.setAttribute("class", "hide")
-        formBoxEl.removeAttribute("class", "hide")
-        formBoxEl.setAttribute("class", "col-8 text-center")
-        questionEl.innerText = "You completed the quick coding quiz!"
+        introArticle.setAttribute("class", "viz")
+        highScoreBox.removeAttribute("class", "hide")
+        headPannel.innerText = "You completed the JavaScript Jive Quiz!"
     }
 
 
     //Function to stop timer
     function stopTimer() {
-        clearInterval(interval); 
         time.innerHTML = "TIMES UP!"
+        clearInterval(interval); 
+        
     }
 
+
+
+
+   //score form submit click 
+   $("#submit").click(function (event) {
+    generateScores()
+});
+
+
+
+//Function to populate scores
+function generateScores() {
+    highscores = JSON.parse(localStorage.getItem("scores")) || [];
+
+    highscores.unshift({
+        name: scoreName.value,
+        scorePoint: scorePoint,
+    });
+
+    localStorage.setItem("scores", JSON.stringify((highscores)))
+
+
+    for (var j = 0; j < highscores.length; j++) {
+        var highscores = JSON.parse(localStorage.getItem("scores")) || [];
+        $("#yourScores").append('<li class="list-group-item">' + "Name: " + highscores[j].name + "  Score: " + highscores[j].score + '</li>')
+    }
+console.log(highscores)
+console.log(localStorage)
+}

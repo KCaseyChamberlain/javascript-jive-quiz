@@ -14,6 +14,9 @@ header {
     display: none;
 }
 
+.viz {
+    visibility: hidden;
+}
 
 #intro-article {
     color: white;
@@ -28,12 +31,14 @@ article p {
     font-size: larger;
 }
 
-.answer-btn:hover {
-    background-color: grey;
+#small-text {
+    color: grey;
+    font-size: xx-large;
 }
 
+
 .btn:hover{
-    background-color: #026b1e;
+    background-color: grey;
     opacity: .9;
 }
 
