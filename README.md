@@ -6,7 +6,7 @@ This timed test is meant to challenge your knowledge of JavaScript. The user wil
 
 * Timer
 * Score
-* Save high score to localStorage
+* Save score to localStorage
 
 ## Preview
 

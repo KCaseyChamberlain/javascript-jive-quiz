@@ -1,4 +1,9 @@
 // Variables
+var count = 60
+var scoreBoard = 0
+var questionIndex = 0
+var scorePoint
+var highscores
 var time = document.querySelector("#time")
 var btnBox = document.querySelector("#btn-box")
 var score = document.querySelector("#score")
@@ -9,11 +14,6 @@ var startBtn = document.querySelector("#start")
 var highScoreBox = document.querySelector("#highscore-box")
 var headPannel = document.querySelector("#head-pannel")
 var scoreName = document.querySelector("#input-name")
-var scorePoint
-var highscores
-var count = 60
-var scoreBoard = 0
-var questionIndex = 0
 
 // Quiz question; title, choice, and answer
 var questions = [
@@ -80,7 +80,7 @@ function nextQ() {
     var currentQ = questions[questionIndex];
         questionIndex++
         console.log(currentQ)
-
+        // Creates answerBtn for choices and applies classes
         if (questionIndex <= questions.length) {
             quizQ.innerText = currentQ.title
             for (var i = 0; i < currentQ.choices.length; i++) {
@@ -94,6 +94,7 @@ function nextQ() {
         else {
             stopQuiz()
         }
+    // If else statements to determine consequences of user's choices
     $(".answer-btn").click(function () {
         var selected = $(this).attr("data-id")
         var answer = currentQ.answer
@@ -116,7 +117,7 @@ function nextQ() {
     });
 }
 
-//Function that stops quiz and hides article
+//Function that stops quiz
 function stopQuiz() {
     stopTimer()
     $("#btn-box").empty();

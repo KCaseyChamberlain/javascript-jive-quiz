@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- Header contains score, #head-pannel, and timer -->
     <header style="text-align: center;" class="row">
         <h2 class="col-md" id="score">
             Score
@@ -27,6 +28,7 @@
         </h2>
     </header>
 
+    <!-- Article contains #title and quiz question -->
     <article id="intro-article">
         <h2 id="title">
             ARE YOU READY?
@@ -39,29 +41,30 @@
         </p>
     </article>
 
+    <!-- Start button -->
     <div class="text-center" id="btn-box">
         <button type="button" id="start" class="btn">Start</button>
     </div>
 
+    <!-- Initial and high score form to save to Local Storage -->
     <div class="row justify-content-center">
-
-        <div class="col-md hide" id="highscore-box">
+        <form class="col-md hide" id="highscore-box">
             <div class="form-group">
                 <small id="small-text">Enter your initials here to save your high
                     score to the Local Storage!</small>
                 <input type="Name" class="form-control" id="input-name">
             </div>
             <button type="button" class="btn" id="submit">Submit</button>
-            </form>
-        </div>
+        </form>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="assets/javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/javascript.js"></script>
 </body>
 
 </html>
