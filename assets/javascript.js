@@ -45,7 +45,6 @@ var questions = [
     },
 ];
 
-
 // Start button to start the quiz and start the timer function
 $("#start").click(function () {
     quizTitle.setAttribute("class", "hide")
@@ -55,8 +54,6 @@ $("#start").click(function () {
     nextQ()
     scorer()
 });
-
-
 
 // Timer function
 function timer() {
@@ -74,14 +71,9 @@ function timer() {
     }, 1000);
 }
 
-
-
 function scorer() {
     score.innerHTML = scoreBoard
 }
-
-
-
 
 function nextQ() {
     var currentQ = questions[questionIndex];
@@ -98,14 +90,10 @@ function nextQ() {
                 btnBox.appendChild(answerBtn);
             }
         }
-
         else {
             stopQuiz()
         }
-
-
     $(".answer-btn").click(function () {
-
         var selected = $(this).attr("data-id")
         var answer = currentQ.answer
         console.log(answer)
@@ -119,51 +107,40 @@ function nextQ() {
         }
         else {
             $("#btn-box").empty();
-            nextQ()
             count = count - 15
             time.innerHTML = count
+            nextQ()
         }
     });
 }
 
+//Function that stops quiz and hides article
+function stopQuiz() {
+    stopTimer()
+    $("#btn-box").empty();
+    introArticle.setAttribute("class", "viz")
+    highScoreBox.removeAttribute("class", "hide")
+    headPannel.innerText = "You completed the JavaScript Jive Quiz!"
+}
 
-    //Function that stops quiz and stores time as score
-    function stopQuiz() {
-        stopTimer()
-        $("#btn-box").empty();
-        introArticle.setAttribute("class", "viz")
-        highScoreBox.removeAttribute("class", "hide")
-        headPannel.innerText = "You completed the JavaScript Jive Quiz!"
-    }
+//Function to stop timer
+function stopTimer() {
+    time.innerHTML = "TIMES UP!"
+    clearInterval(interval); 
+}
 
-
-    //Function to stop timer
-    function stopTimer() {
-        time.innerHTML = "TIMES UP!"
-        clearInterval(interval); 
-    }
-
-
-
-
-   //score form submit click 
-   $("#submit").click(function (event) {
+   //Button that calls the generateScores function and hides itself. 
+$("#submit").click(function (event) {
     highScoreBox.setAttribute("class", "hide")
     generateScores()
 });
 
-
-//Function to populate scores
+//Function that sends score to localStorage
 function generateScores() {
     highscores = JSON.parse(localStorage.getItem("scores")) || [];
-
     highscores.unshift({
         Initials: scoreName.value,
         Score: scoreBoard,
     });
-
     localStorage.setItem("scores", JSON.stringify((highscores)))
-
-    var localScores = document.createElement("div")
-    localScores.innerText = "You completed the JavaScript Jive Quiz!"
     }
